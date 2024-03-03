@@ -5,11 +5,30 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "commitlint": "commitlint --config commitlint.config.js -e -V"
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "echo '在这里写入代码校验脚本'"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },
