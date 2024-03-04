@@ -1,9 +1,10 @@
-import Image from "next/image";
+import SubSystem from "@/components/sub-system/sub-system";
 
 export default function Home() {
   return (
-    <>
-      <div className=" text-center text-red-800">hello aio-master!</div>
-    </>
+      <div className="mt-4 ml-20 mr-20">
+        <SubSystem/>
+      </div>
+
   );
 }
