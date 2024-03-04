@@ -3,10 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/providers";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { ThemeProvider } from "@/components/layout/providers";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { fontSans } from "@/lib/fonts";
+import {Toaster} from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -67,7 +68,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -80,13 +80,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
-            <div vaul-drawer-wrapper="">
+            <div vaul-drawer-wrapper>
               <div className="relative flex min-h-screen flex-col bg-background">
                 <SiteHeader />
                 <main className="flex-1">{children}</main>
                 <SiteFooter />
               </div>
             </div>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
